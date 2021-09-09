@@ -6,8 +6,10 @@
 
 echo 1234 | sudo -S su
 
+echo "Git is installed ..."
+sudo apt-get install git -y
 
-echo 'date +"%Y-%M-%d %T"'" - LogFileEb " >> /home/ebb/log.txt
+echo 'date +"%Y-%M-%d %T"'" - LogFileEb " >> /home/pi/log.txt
 
 
 
@@ -17,13 +19,13 @@ sudo echo "sudo iptables -t nat -A PREROUTING -p tcp --dport 502 -j REDIRECT --t
 
 sudo crontab -l > crontab_new
 
-echo "@reboot /home/ebb/Desktop/EbbScripts/ebb.sh" >> crontab_new
+echo "@reboot /home/pi/EbbScripts/ebb.sh" >> crontab_new
 sudo crontab crontab_new
 
 
 sudo rm crontab_new
 
-sudo chmod +x /home/ebb/Desktop/EbbScripts/ebb.sh
+sudo chmod +x /home/ebb/EbbScripts/ebb.sh
 
 echo "Port forwerding "
 sudo ./ebb.sh
@@ -57,7 +59,7 @@ sudo apt-get -y install python3-pip
 
 sudo apt-get install python3-netifaces
 
-sudo pip3 install -r /home/ebb/Desktop/EbbScripts/requirements.txt 
+sudo pip3 install -r /home/pi/EbbScripts/requirements.txt 
 
 sudo pip install numpy --upgrade
 sudo apt-get install libatlas-base-dev
@@ -85,14 +87,14 @@ sudo echo "sudo python3 main.py" > running.sh
 
 sudo crontab -l > crontab_new2
 
-sudo echo "@reboot /home/ebb/Desktop/EbbScripts/running.sh" >> crontab_new2
+sudo echo "@reboot /home/pi/EbbScripts/running.sh" >> crontab_new2
 sudo crontab crontab_new2
 
 
 
 sudo rm crontab_new2
 
-sudo chmod +x /home/ebb/Desktop/EbbScripts/running.sh
+sudo chmod +x /home/pi/Desktop/EbbScripts/running.sh
 
 
 sudo reboot
